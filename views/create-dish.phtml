@@ -1,0 +1,60 @@
+<section class="ftco-section pb-3">
+    <div class="container">
+        <div class="col-md-12 mb-5 pb-3">
+            <h3>Új étel</h3>
+            <?php if(isset($params['post'])): ?>
+                <div class="alert alert-danger">
+                    Hiányos ürlap elemek.
+                </div>
+            <?php endif ?>
+            <form action="/create-dish" method="POST">
+                <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Név</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputName" name="name" value="<?= isset($params['post']) ? $params['post']['name'] : '' ?>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Leírás</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"><?= isset($params['post']) ? $params['post']['description'] : '' ?></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPrice" class="col-sm-2 col-form-label">Ár</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputPrice" name="price" value="<?= isset($params['post']) ? $params['post']['price'] : '' ?>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputType" class="col-sm-2 col-form-label">Típus</label>
+                    <div class="col-sm-10">
+                        <select name="dishTypeId" id="inputType" class="form-control">
+                            <option style="background-color:#000" value="1">
+                                Levesek </option>
+                            <option style="background-color:#000" value="2">
+                                Főételek </option>
+                            <option style="background-color:#000" value="3">
+                                Desszertek </option>
+                            <option style="background-color:#000" value="4">
+                                Italok </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">Aktív</div>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1" name="isActive">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Elküldés</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

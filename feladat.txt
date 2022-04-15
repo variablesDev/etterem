@@ -1,0 +1,55 @@
+Method
+Útvonal
+Funkcionalitás
+GET	/	
+Listázd ki az összes ételtípust és az alá tartozó ételeket!
+
+Tipp: először kérd le az adatbázisból csak a típusokat a "dishTypes" táblából, majd iterálj át rajtuk.
+
+Minden soron következő típus kapcsán végezz lekérdezést a "dishes" táblából, csak azon elemekre, amelyeknek a "dishTypeId"-ja megegyezik az aktuálisan soronlévő típus "id"-jával. Az így kapott dish elemek tömbjét kösd be az adott ételtípus alá, "dishes" kulcs alá!
+
+(Join műveletre nincs szükség)
+
+GET	/admin	
+Ha nincs bejelentkezve a felhasználó, jelenítsd meg a bejelentkezési form-ot!
+
+Ha be van jelentkezve a felhasználó, akkor jelenítsd meg az ételek listáját a "dish-list.phtml" sablon segítségével!
+
+POST	/login	
+Valósítsd meg a bejelentkezést
+
+GET	/admin/uj-etel-letrehozasa	
+Jelenítsd meg az új étel létrehozó form-ot, a "create-dish.phtml" sablon segítségével!
+
+POST	/create-dish	
+Hozz létre új rekordot a "dishes" táblában, a kapott adatok alapján!
+
+Az új rekord slug-ját, az étel nevéből generáld ki, a slugify függvény felhasználásával!
+
+GET	/admin/etel-szerkesztese/{keresoBaratNev}	
+Végezz lekérdezést a "dishes" táblában, az URL-ben lévő keresőbarát név alapján!
+
+Jelenítsd meg a szerkesztő formot, adatokkal felpopulálva!
+
+POST	/update-dish/{dishId}	
+Írd felül az adott ételt, a "dishes" táblában!
+
+Redirect-eld a felhasználót az "/admin" útvonalra!
+
+
+Itt tartok!!!! kb 6óra munka 50%-osan 22:14
+
+
+POST	/delete-dish/{dishId}	
+Töröld az adott ételt, a "dishes" táblából!
+
+Redirect-eld a felhasználót az "/admin" útvonalra!
+
+GET	/admin/etel-tipusok	
+Jelenítsd meg az ételtípusokat, a "dish-type-list.phtml" sablon segítségével!
+
+POST	/create-dish-type	
+Hozz létre új rekordot a "dishTypes" táblában, a body-ban érkező adatok alapján!
+
+POST	/logout	
+Töröld a felhasználó session-jét!

@@ -1,0 +1,26 @@
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+        <?php foreach($params['dishTypes'] as $dishType) : ?>
+        <div class="col-md-6 mb-5 pb-3">
+            <h3 class="mb-5 heading-pricing ftco-animate fadeInUp ftco-animated"><?= $dishType['name'] ?></h3>
+            <?php foreach($dishType['dishes'] as $dishes) : ?>
+            <?php if($dishes['isActive'] === 1) : ?>
+            <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span><?= $dishes['name'] ?></span></h3>
+                        <span class="price"><?= $dishes['price'] ?> Ft</span>
+                    </div>
+                    <div class="d-block">
+                        <p><?= $dishes['description'] ?></p>
+                    </div>
+                </div>
+            </div>
+            <?php endif ?>
+            <?php endforeach ?>
+        </div>
+        <?php endforeach ?>
+        </div>
+    </div>
+</section>
